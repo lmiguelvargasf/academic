@@ -101,7 +101,7 @@ export default async function Home({ searchParams }: PageProps) {
               </div>
 
               <div className="motion-hero-media">
-                <figure className="relative ml-auto max-w-xl pb-16 sm:pb-20">
+                <figure className="relative ml-auto max-w-xl">
                   <div className="absolute -bottom-8 -left-8 h-44 w-44 rounded-full bg-[#8c1d18]/12 blur-3xl" />
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone-200 shadow-2xl shadow-stone-900/20 ring-1 ring-stone-900/10">
                     <Image
@@ -113,21 +113,8 @@ export default async function Home({ searchParams }: PageProps) {
                       className="object-cover object-center"
                     />
                   </div>
-                  <div className="absolute bottom-0 left-0 w-36 overflow-hidden rounded-3xl bg-stone-200 shadow-2xl shadow-stone-900/20 ring-4 ring-[#f7f2ea] sm:w-44">
-                    <div className="relative aspect-square">
-                      <Image
-                        src="/david-malan-linkedin.jpg"
-                        alt={t.hero.profileAlt}
-                        fill
-                        sizes="176px"
-                        className="object-cover object-center"
-                      />
-                    </div>
-                  </div>
                   <figcaption className="mt-3 text-right text-xs leading-5 text-stone-500">
                     {t.hero.photoCredit}
-                    <br />
-                    {t.hero.profileCredit}
                   </figcaption>
                 </figure>
               </div>

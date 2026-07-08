@@ -39,9 +39,6 @@ export const copy = {
       photoAlt:
         "David Malan speaking in a lecture hall, wearing a black shirt and gesturing while presenting.",
       photoCredit: "Photo: Leroy Zhang / CS50",
-      profileAlt:
-        "David Malan in a burgundy CS50 hoodie, photographed for his public LinkedIn profile.",
-      profileCredit: "Profile photo: LinkedIn",
     },
     proof: [
       { value: "2007–present", label: "Professor at Harvard" },
@@ -186,9 +183,6 @@ export const copy = {
       photoAlt:
         "David Malan hablando en un auditorio, con camisa negra y gesticulando mientras presenta.",
       photoCredit: "Foto: Leroy Zhang / CS50",
-      profileAlt:
-        "David Malan con una sudadera burdeos de CS50, fotografiado para su perfil público de LinkedIn.",
-      profileCredit: "Foto de perfil: LinkedIn",
     },
     proof: [
       { value: "2007–presente", label: "Profesor en Harvard" },
