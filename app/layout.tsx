@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Outfit, Syne } from "next/font/google";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-serif",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
 });
 
@@ -18,9 +18,9 @@ const siteUrl =
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
-  title: "David Malan, PhD — Harvard University",
+  title: "Cursor Workshop Quito",
   description:
-    "Academic portfolio of David Malan, Gordon McKay Professor of the Practice of Computer Science at Harvard University. Research in computer science education and cybersecurity.",
+    "Taller práctico en Quito: aprende Cursor, crea y publica tu landing page. Presentado por Cursor Community.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -37,8 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${sourceSans.variable} ${sourceSerif.variable} h-full antialiased`}
+      lang="es"
+      className={`${outfit.variable} ${syne.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>
