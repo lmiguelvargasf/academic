@@ -18,9 +18,9 @@ const siteUrl =
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
-  title: "Cursor Workshop Quito",
+  title: "David Malan, PhD | Academic Portfolio",
   description:
-    "Taller práctico en Quito: aprende Cursor, crea y publica tu landing page. Presentado por Cursor Community.",
+    "Academic portfolio for David Malan, Gordon McKay Professor of the Practice of Computer Science at Harvard University.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${outfit.variable} ${syne.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">{children}</body>
