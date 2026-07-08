@@ -15,8 +15,12 @@ const links = {
 
 const copy = {
   en: {
-    languageName: "English",
     switchLabel: "Switch site language to Spanish",
+    languageToggle: {
+      label: "Language",
+      english: "English",
+      spanish: "Español",
+    },
     skip: "Skip to main content",
     nav: ["About", "Research", "Publications", "Teaching", "Contact"],
     hero: {
@@ -33,6 +37,9 @@ const copy = {
       photoAlt:
         "David Malan speaking in a lecture hall, wearing a black shirt and gesturing while presenting.",
       photoCredit: "Photo: Leroy Zhang / CS50",
+      profileAlt:
+        "David Malan in a burgundy CS50 hoodie, photographed for his public LinkedIn profile.",
+      profileCredit: "Profile photo: LinkedIn",
     },
     proof: [
       { value: "2007–present", label: "Professor at Harvard" },
@@ -155,8 +162,12 @@ const copy = {
       "Content synthesized from public CV, website, and profile materials. Replace or refine project details as priorities change.",
   },
   es: {
-    languageName: "Español",
     switchLabel: "Cambiar el idioma del sitio a inglés",
+    languageToggle: {
+      label: "Idioma",
+      english: "Inglés",
+      spanish: "Español",
+    },
     skip: "Saltar al contenido principal",
     nav: ["Acerca de", "Investigación", "Publicaciones", "Docencia", "Contacto"],
     hero: {
@@ -173,6 +184,9 @@ const copy = {
       photoAlt:
         "David Malan hablando en un auditorio, con camisa negra y gesticulando mientras presenta.",
       photoCredit: "Foto: Leroy Zhang / CS50",
+      profileAlt:
+        "David Malan con una sudadera burdeos de CS50, fotografiado para su perfil público de LinkedIn.",
+      profileCredit: "Foto de perfil: LinkedIn",
     },
     proof: [
       { value: "2007–presente", label: "Profesor en Harvard" },
@@ -301,7 +315,6 @@ const navTargets = ["about", "research", "publications", "teaching", "contact"];
 export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
   const t = copy[language];
-  const nextLanguage: Language = language === "en" ? "es" : "en";
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -338,14 +351,45 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <button
-            type="button"
+          <div
+            role="group"
             aria-label={t.switchLabel}
-            onClick={() => setLanguage(nextLanguage)}
-            className="rounded-full border border-stone-900/20 bg-white/70 px-4 py-2 text-sm font-medium text-stone-900 shadow-sm transition hover:border-[#8c1d18]/40 hover:text-[#8c1d18]"
+            className="flex items-center gap-2 rounded-full border border-stone-900/15 bg-white/75 p-1 shadow-sm"
           >
-            English / Español
-          </button>
+            <span className="hidden pl-3 text-xs font-semibold uppercase tracking-[0.16em] text-stone-500 sm:inline">
+              {t.languageToggle.label}
+            </span>
+            <button
+              type="button"
+              aria-pressed={language === "en"}
+              onClick={() => setLanguage("en")}
+              className={`rounded-full px-3 py-2 text-sm font-semibold transition ${
+                language === "en"
+                  ? "bg-[#8c1d18] text-white shadow-sm"
+                  : "text-stone-700 hover:bg-stone-100 hover:text-stone-950"
+              }`}
+            >
+              <span aria-hidden className="mr-1">
+                🇺🇸
+              </span>
+              {t.languageToggle.english}
+            </button>
+            <button
+              type="button"
+              aria-pressed={language === "es"}
+              onClick={() => setLanguage("es")}
+              className={`rounded-full px-3 py-2 text-sm font-semibold transition ${
+                language === "es"
+                  ? "bg-[#8c1d18] text-white shadow-sm"
+                  : "text-stone-700 hover:bg-stone-100 hover:text-stone-950"
+              }`}
+            >
+              <span aria-hidden className="mr-1">
+                🇪🇸
+              </span>
+              {t.languageToggle.spanish}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -389,7 +433,7 @@ export default function Home() {
             </div>
 
             <div className="motion-hero-media">
-              <figure className="relative ml-auto max-w-xl">
+              <figure className="relative ml-auto max-w-xl pb-16 sm:pb-20">
                 <div className="absolute -bottom-8 -left-8 h-44 w-44 rounded-full bg-[#8c1d18]/12 blur-3xl" />
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone-200 shadow-2xl shadow-stone-900/20 ring-1 ring-stone-900/10">
                   <Image
@@ -401,8 +445,21 @@ export default function Home() {
                     className="object-cover object-center"
                   />
                 </div>
-                <figcaption className="mt-3 text-right text-xs text-stone-500">
+                <div className="absolute bottom-0 left-0 w-36 overflow-hidden rounded-3xl bg-stone-200 shadow-2xl shadow-stone-900/20 ring-4 ring-[#f7f2ea] sm:w-44">
+                  <div className="relative aspect-square">
+                    <Image
+                      src="/david-malan-linkedin.jpg"
+                      alt={t.hero.profileAlt}
+                      fill
+                      sizes="176px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                </div>
+                <figcaption className="mt-3 text-right text-xs leading-5 text-stone-500">
                   {t.hero.photoCredit}
+                  <br />
+                  {t.hero.profileCredit}
                 </figcaption>
               </figure>
             </div>
